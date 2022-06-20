@@ -1,3 +1,4 @@
+using HiringManager.BLL.Repositories.JobsModule;
 using HiringManager.DAL.Modules;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
+
 
 
 var app = builder.Build();

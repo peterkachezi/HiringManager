@@ -1,13 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HiringManager.BLL.Repositories.JobsModule;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HiringManager.Controllers
 {
 
     public class JobListingController : Controller
     {
-        public IActionResult Index()
+        private readonly IJobRepository jobRepository;
+        public JobListingController(IJobRepository jobRepository)
         {
-            return View();
+            this.jobRepository = jobRepository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var jobs = await jobRepository.GetAll();
+
+                return View(jobs);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return null;
+            }
         }
     }
 }

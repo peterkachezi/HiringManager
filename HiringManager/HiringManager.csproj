@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HiringManager.BLL\HiringManager.BLL.csproj" />
     <ProjectReference Include="..\HiringManager.DAL\HiringManager.DAL.csproj" />
   </ItemGroup>
 
